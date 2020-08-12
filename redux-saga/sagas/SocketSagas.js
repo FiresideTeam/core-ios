@@ -157,7 +157,7 @@ function* watchSocketChannel() {
             const payload = yield take(socketChannel);
             console.log('Message Received', {id: payload.messageId, text: payload.text, user:{name: payload.name} });
             const cleanPayload = {id: payload.messageId, text: payload.text};
-            yield put({type: actions.RECEIVED_MESSAGES, id: payload.messageId, text: payload.text});
+            yield put({type: actions.RECEIVED_MESSAGES, id: payload.messageId, text: payload.text, user:{name: payload.name}});
 
         } catch (err) {
             console.log('socket error: ', err);
