@@ -1,6 +1,6 @@
 import { put, takeEvery } from 'redux-saga/effects'
 import { AsyncStorage } from 'react-native'
-import {getAuthToken} from "../../services/SocketIOService"
+
 
 
 import * as actions from '../../redux/constants/ActionTypes'
