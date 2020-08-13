@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Image, Alert, FlatList} from "react-native";
+import { View, Text, StyleSheet, Image, Alert, FlatList, TouchableOpacity} from "react-native";
 import {
   Container,
   Left,
@@ -31,12 +31,17 @@ export class ProfileScreenHeader extends Component {
             /> 
           </View>
 
-          <View style = {{flex: 1, justifyContent: 'center'}}>
+          <View style = {{flex: 1, justifyContent: 'center', flexDirection: 'column'}}>
+            
             <Text style={{fontWeight: '400', fontSize: 18, color:'#000000'}}> Michael Hla</Text>
+            
             <Text style={{fontWeight: '400', color: '#A0A0A0', fontSize: 13}}> @MICHAELH420 </Text>
-            <Button Button bordered dark small style={{justifyContent: 'center'}}>
-             <Text style={{fontSize: 10}}> Edit Account </Text> 
-            </Button>
+            
+            <TouchableOpacity style={{borderWidth:2, borderRadius:6, height: 28, marginTop: '10%'}}>
+             <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                <Text style={{fontSize: 10}}> EDIT ACCOUNT </Text> 
+             </View>
+            </TouchableOpacity>
           </View>
 
           <View style = {{flex: 1, justifyContent: 'center', flexDirection: 'row-reverse'}}>
