@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Image, Alert} from "react-native";
+import { View, Text, StyleSheet, Image, Alert, FlatList} from "react-native";
 import {
   Container,
   Left,
@@ -55,14 +55,17 @@ export class ProfileScreenHeader extends Component {
 
           
 
-          <View style = {{flex: 5, flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-evenly', paddingLeft: 10}}>
-           <GoatIcon/>
-           <GoatIcon/>
-           <GoatIcon/>
-           <GoatIcon/>
-           <GoatIcon/>
+          <FlatList
+          horizontal={true}
+          data={[{key: 1}, {key: 2}, {key: 3},{key: 4},{key: 5},{key: 6},{key: 7}]}
+          showsHorizontalScrollIndicator={false}
+          renderItem={() => (
+            <View style={{paddingLeft: 20}}>
+              <GoatIcon style={{width: 45, height: 44}}/>
+            </View>
+            )}
+          />
 
-          </View>
 
           </View>
         </View>
