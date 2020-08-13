@@ -34,39 +34,8 @@ function PostCell() {
 					style={{ flex: 1 }}
 					imageStyle={{ borderRadius: 10 }}
 				>
-					<Text
-						style={{
-							color: "white",
-							textAlign: "center",
-							paddingTop: 200,
-							fontWeight: "bold",
-							textShadowColor: "black",
-							textShadowOffset: {
-								width: -1,
-								height: 1,
-							},
-							textShadowRadius: 10,
-							fontSize: 17,
-						}}
-					>
-						Everett Dickinson
-					</Text>
-					<Text
-						style={{
-							color: "white",
-							textAlign: "center",
-							paddingTop: 2,
-							textShadowColor: "black",
-							textShadowOffset: {
-								width: -1,
-								height: 1,
-							},
-							textShadowRadius: 10,
-							fontSize: 12,
-						}}
-					>
-						@edick
-					</Text>
+					<Text style={styles.title}> Everett Dickinson </Text>
+					<Text style={styles.subtitle}> @edick </Text>
 				</ImageBackground>
 			</View>
 		</TouchableOpacity>
@@ -76,6 +45,33 @@ function PostCell() {
 export default PostCell;
 
 const styles = StyleSheet.create({
+	title: {
+		color: "white",
+		textAlign: "center",
+		paddingTop: 200,
+		fontWeight: "bold",
+		textShadowColor: "black",
+		textShadowOffset: {
+			width: -1,
+			height: 1,
+		},
+		textShadowRadius: 10,
+		fontSize: 17,
+
+	},
+	subtitle: {
+		color: "white",
+		textAlign: "center",
+		paddingTop: 2,
+		textShadowColor: "black",
+		textShadowOffset: {
+		width: -1,
+		height: 1,
+		},
+		textShadowRadius: 10,
+		fontSize: 12,
+
+	},
 	container: {
 		flex: 1,
 	},

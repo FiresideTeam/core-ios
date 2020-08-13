@@ -26,8 +26,8 @@ export default class CoreScreen extends Component {
           <ProfileHeader/>
         </View>
 
-        <View style={{flex: 10, backgroundColor: "#aaaaaa"}}>
-          <Posts style={{flex: 3}}/>
+        <View style={{flex: 10, backgroundColor: "#FFFFFF"}}>
+          <Posts/>
         </View>
         
 

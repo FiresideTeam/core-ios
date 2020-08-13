@@ -48,8 +48,12 @@ export class ProfileScreenHeader extends Component {
         <View style = {{flex: 1}}>
 
           <View style = {{flex: 2}}>
-           <Text style={{fontSize: 13, fontWeight: '800', paddingLeft: 15}}> YOUR AWARDS </Text>
+           <Text style={{fontSize: 13, fontWeight: '800', paddingLeft: '3.5%'}}> YOUR AWARDS </Text>
           </View>
+
+
+
+          
 
           <View style = {{flex: 5, flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-evenly', paddingLeft: 10}}>
            <GoatIcon/>

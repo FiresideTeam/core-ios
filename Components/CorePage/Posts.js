@@ -15,7 +15,21 @@ import PostCell from "./PostCell";
 
 export default class Posts extends Component {
 	render() {
+
+		// Need two empty flexboxes here because `YOUR CORE` 
+		// needs to be aligned in
+		// center to the relative flexbox
+		// at a 1/3 ratio to screen width
+		// and I don't know a better way to do it
+
 		return (
+		<View style={{flex: 1}}>
+
+		   	<View style={{flex: 1, justifyContent: 'center', paddingLeft: '3.5%'}}>
+					<Text style={{fontSize: 13, fontWeight: '800'}}> YOUR CORE </Text>
+			</View>
+
+		<View style={{flex: 8}}>
 			<ScrollView>
 				<Container style={styles.container}>
 					<FlatList
@@ -37,6 +51,8 @@ export default class Posts extends Component {
 					/>
 				</Container>
 			</ScrollView>
+			</View>
+		</View>
 		);
 	}
 }
