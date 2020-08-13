@@ -13,6 +13,7 @@ const RenderMessage = ({ item }) => (
             <View styleName="horizontal space-between">
                 <Text>{item.author.name}</Text>
             </View>
+            
             <Text styleName="multiline">{item.text}</Text>
         </View>
     </View>

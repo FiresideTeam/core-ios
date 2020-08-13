@@ -1,10 +1,11 @@
 import React, { Componenet } from 'react'
-import { View, Image , Text} from 'react-native'
+import { View, Image , Text, TouchableOpacity} from 'react-native'
 
 const dickpfp = require("../../assets/dickpfp.png")
 
-export const ChatRoom = ({item, index, seperators }) => {
+export const ChatRoom = ({item, index, navigation}) => {
 	return (
+	<TouchableOpacity onPress={() => console.log(navigation)}>	
 		<View style={{padding: '5%', borderBottomColor:'#D5D5D5', borderLeftColor:'#ffffff', borderRightColor:'#ffffff', borderTopColor:'#ffffff', borderWidth: 1}}>
 			<View style={{flex:1, flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'center'}}>
 				
@@ -24,6 +25,7 @@ export const ChatRoom = ({item, index, seperators }) => {
 				</View>
 			</View>
 		</View>
+	</TouchableOpacity>
 		)
 
 
