@@ -57,7 +57,7 @@ export class ProfileScreenHeader extends Component {
 
           <FlatList
           horizontal={true}
-          data={[{key: 1}, {key: 2}, {key: 3},{key: 4},{key: 5},{key: 6},{key: 7}]}
+          data={[{key: '1'}, {key: '2'}, {key: '3'},{key: '4'},{key: '5'},{key: '6'},{key: '7'}]}
           showsHorizontalScrollIndicator={false}
           renderItem={() => (
             <View style={{paddingLeft: 20}}>
