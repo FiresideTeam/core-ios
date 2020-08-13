@@ -17,6 +17,7 @@ import Topic from "./Components/TopicsPage/Main";
 import LoginScreen from "./Components/LoginPage/LoginScreen";
 import ChatScreen from "./Components/ChatPage/ChatScreen";
 import ChatRoomsScreen from "./Components/ChatRoomsPage/ChatRoomsScreen";
+import LandingScreen from "./Components/LandingPage/LandingScreen"
 // Redux
 import { Provider } from 'react-redux';
 // Redux-saga
@@ -143,7 +144,7 @@ export default class App extends Component {
         // be passed down into the context provider
         this.state = {
             loading: false,
-            isLoggedIn: true,
+            isLoggedIn: false,
             updateSession: this.updateSession,
         };
 
@@ -164,6 +165,7 @@ export default class App extends Component {
                   ) : (
                       <>
                           <loginStack.Navigator>
+                              <loginStack.Screen name="landing" component={LandingScreen} options={{headerShown: false}}/>
                               <loginStack.Screen name="login" component={LoginScreen} options={{headerShown: false}} setLoginState={this.updateSession}/>
                           </loginStack.Navigator>
                       </>
