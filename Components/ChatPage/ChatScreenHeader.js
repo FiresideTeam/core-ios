@@ -11,11 +11,11 @@ export class ChatScreenHeader extends Component{
 		const { navigation } = this.props;
 		return(
 			<View style={{flex: 1, flexDirection: 'row'}}>
-			<TouchableOpacity onPress={() => this.props.navigation.pop()}>
-				<View style={{flex:1, justifyContent: 'center', width:100}}>
-						<LeftActionIcon style={{alignSelf: 'flex-start'}}/>
-				</View>
-			</TouchableOpacity>
+			<View style={{flex:1, justifyContent: 'center', width:100}}>
+				<TouchableOpacity onPress={() => this.props.navigation.pop()}>
+					<LeftActionIcon style={{marginTop: '10%', alignSelf: 'flex-start'}}/>
+				</TouchableOpacity>
+			</View>
 				
 				<View style={{flex:1, justifyContent: 'center'}}>
 					<Text style={{fontSize: 18, fontWeight: 'bold', alignSelf: 'center', marginTop: '10%'}}>Everett</Text>

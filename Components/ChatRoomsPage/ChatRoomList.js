@@ -28,13 +28,12 @@ class ChatRoomList extends Component {
 
 	render(){
 		const navigation = this.props.navigation;
-		console.log('nav', navigation)
 		return(
 		<FlatList 
 		data={data}
 		renderItem={({item, index}) => (
 		<TouchableOpacity onPress={() => console.log(navigation.push('Chat'))}>	
-			<View style={{padding: '5%', borderBottomColor:'#D5D5D5', borderLeftColor:'#ffffff', borderRightColor:'#ffffff', borderTopColor:'#ffffff', borderWidth: 1}}>
+			<View style={{padding: '5%', borderColor:'#D5D5D5', borderBottomWidth: 1, borderTopWidth: 1}}>
 				<View style={{flex:1, flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'center'}}>
 					
 					<View style={{flex: 1, alignItems: 'flex-start', justifyContent: 'center'}}>

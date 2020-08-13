@@ -11,11 +11,12 @@ class ChatRoomsScreenHeader extends Component{
 		const { navigation } = this.props;
 		return(
 			<View style={{flex: 1, flexDirection: 'row'}}>
-			<TouchableOpacity onPress={() => navigation.pop()}>
 				<View style={{flex:1, justifyContent: 'center', width:100}}>
-					<LeftActionIcon style={{alignSelf: 'flex-start'}}/>
+					<TouchableOpacity onPress={() => navigation.pop()}>
+						<LeftActionIcon style={{marginTop: '10%', alignSelf: 'flex-start'}}/>
+					</TouchableOpacity>
 				</View>
-			</TouchableOpacity>
+			
 				
 				<View style={{flex:1, justifyContent: 'center'}}>
 					<Text style={{fontSize: 18, fontWeight: 'bold', alignSelf: 'center', marginTop: '10%'}}>Chats</Text>

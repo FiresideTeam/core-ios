@@ -18,7 +18,7 @@ export default class ChatRoomsScreen extends Component {
 	          <ChatRoomsScreenHeader navigation={this.props.navigation}/>
 	        </View>
 
-	        <View style={{flex:14, backgroundColor: "#FFFFFF", borderColor: '#D5D5D5', borderWidth: 1.5}}>
+	        <View style={{flex:14, backgroundColor: "#FFFFFF", borderColor: '#D5D5D5', borderWidth: 0}}>
 	          <ChatRoomList navigation={this.props.navigation}/>
 	        </View>
 	        
