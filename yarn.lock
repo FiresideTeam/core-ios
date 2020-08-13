@@ -5108,7 +5108,7 @@ react-native-easy-grid@0.2.2:
   dependencies:
     lodash "^4.17.15"
 
-react-native-elements@^2.2.1:
+react-native-elements@^2.0.4:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-2.2.1.tgz#1d95aa7ee2020f72e0bc779d574fefcf072b7086"
   integrity sha512-JhveP4ZQzZrMef9sBJfjfgfdbKafGnqZGosVr4hb3At8c1wJ3QFgOGUsKxhpjpF2wr/RgLbP2UV3rS1cD+t7IA==
@@ -5159,10 +5159,10 @@ react-native-ratings@^7.2.0:
     lodash "^4.17.4"
     prop-types "^15.5.10"
 
-react-native-reanimated@~1.12.0:
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.12.0.tgz#6a7d6746957e0fd56694ea7ef7ffb82b1b3666a3"
-  integrity sha512-OOO7HCLCrwA1YpOfwy6PjJnP1xfeFSAnEq52jH4m535y2WEG53BudF+tYVZ/vyQX+hlOZEEIr/TAwu5qE8nn4w==
+react-native-reanimated@~1.7.0:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.7.1.tgz#6363c7f3ebbabc56a05d5dccaf09d95f3b6a2d69"
+  integrity sha512-aBwhoQdH4shkeTPbi7vKcAwYOzBp/6zElEKuIOgby11TceoM7y5SgNImC3HbDWWld3QV2PA2AgQGwAy51WgF3Q==
   dependencies:
     fbjs "^1.0.0"
 
@@ -5190,10 +5190,10 @@ react-native-status-bar-height@^2.5.0:
   resolved "https://registry.yarnpkg.com/react-native-status-bar-height/-/react-native-status-bar-height-2.5.0.tgz#bc0fb85230603850aab9667ee8111a62954de90c"
   integrity sha512-sYBCPYA/NapBSHkdm/IVL4ID3LLlIuLqINi2FBDyMkc2BU9pfSGOtkz9yfxoK39mYJuTrlTOQ7mManARUsYDSA==
 
-react-native-super-grid@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/react-native-super-grid/-/react-native-super-grid-4.0.2.tgz#1d549b1919d4d99b669b5a00719c04c3d442c31b"
-  integrity sha512-EB/60LVoXev5VV2Jb5WlpcoMBqgUljG6LWwJpSvKxK09HAhEhE9ZO1wUbZUzNnr1nYFXXnSlz0zJSkA8VELaCA==
+react-native-super-grid@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-super-grid/-/react-native-super-grid-4.0.3.tgz#67ce71c241eb572a4ca92c4b667a053f3ec6a874"
+  integrity sha512-WsnK0s+hL3/hRscMcoMrCZBfUFrbDGTQbfvwPk+40ku069ebr+1czEqCmXP4UtNrpEQgysA6ge53CuuBDVY/qQ==
   dependencies:
     prop-types "^15.6.0"
 
