@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import {Image, StyleSheet, View, Text} from 'react-native';
+import {Image, StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 import { Header } from "react-native-elements";
-
+import { useNavigation } from '@react-navigation/native';
 
 import FiresideLogo from "../../assets/svg/./FiresideLogo"
 import ChatBubbleIcon from "../../assets/svg/./ChatBubbleIcon"
 
-export default class CoreHeader extends Component {
+class CoreHeader extends Component {
   render() {
     return (
     	 <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingTop: '10%', backgroundColor: "#ffffff"}}>  
@@ -21,7 +21,9 @@ export default class CoreHeader extends Component {
 	    	</View> 
 
 	          <View style = {{flex: 1, justifyContent: 'center', flexDirection: 'row-reverse'}}>
-	            <ChatBubbleIcon style={{alignSelf: 'center', marginLeft: '50%'}}/>
+	            <TouchableOpacity style={{alignSelf: 'center', marginLeft: '50%'}} onPress={() => this.props.navigation.push('ChatRooms')}>
+	            	<ChatBubbleIcon/>
+	          	</TouchableOpacity>
 	          </View>
 
         </View>  
@@ -29,6 +31,8 @@ export default class CoreHeader extends Component {
   }
 }
 
-
-
+export default function(props) {
+  const navigation = useNavigation();
+  return <CoreHeader {...props} navigation={navigation} />;
+}
 

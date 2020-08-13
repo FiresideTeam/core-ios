@@ -15,7 +15,8 @@ import TopicSingleView from "./Components/TopicSingleView";
 import Profile from "./Components/Profile";
 import Topic from "./Components/TopicsPage/Main";
 import LoginScreen from "./Components/LoginPage/LoginScreen";
-import ChatScreen from "./Components/ChatPage/ChatScreen"
+import ChatScreen from "./Components/ChatPage/ChatScreen";
+import ChatRoomsScreen from "./Components/ChatRoomsPage/ChatRoomsScreen";
 // Redux
 import { Provider } from 'react-redux';
 // Redux-saga
@@ -113,6 +114,7 @@ function mainStackNavigator(){
   return (
     <mainStack.Navigator headerMode={"none"}>
       <mainStack.Screen name ="bottomTabs"  component={bottomTabNavigationStack}/>
+      <mainStack.Screen name ="ChatRooms" component={ChatRoomsScreen}/>
       <mainStack.Screen name ="Chat" component={ChatScreen}/>
     </mainStack.Navigator>
     )
