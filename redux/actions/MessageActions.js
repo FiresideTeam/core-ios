@@ -5,9 +5,10 @@ function makeid(length) {
    var result           = '';
    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
    var charactersLength = characters.length;
-   for ( var i = 0; i < length; i++ ) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-   }
+	   for ( var i = 0; i < length; i++ ) {
+	      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+	   }
+
    return result;
 }
 
@@ -18,7 +19,7 @@ function makeid(length) {
 // Start fetching messages
 export const startFetchingMessages = () => ({
 	type: actions.SOCKET_SEND,
-	fetching: true,
+	isFetching: true,
 	eventName: 'get',
 	namespace: 'messages',
 	params: null,

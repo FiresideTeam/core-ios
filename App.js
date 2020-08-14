@@ -144,7 +144,7 @@ export default class App extends Component {
         // be passed down into the context provider
         this.state = {
             loading: false,
-            isLoggedIn: false,
+            isLoggedIn: true,
             updateSession: this.updateSession,
         };
 

@@ -27,7 +27,6 @@ class ChatFooter extends Component{
 
 		this.sendMessage = this.sendMessage.bind(this);
 		this.updateMessageInput = this.updateMessageInput.bind(this);
-		this.props.openSocket();
 	}
 
 		    
