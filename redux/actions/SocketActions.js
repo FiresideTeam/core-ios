@@ -1,11 +1,10 @@
 import * as actions from "../constants/ActionTypes";
 
-export const fetchUserAuthToken = content => ({
-    type: actions.FETCH_USER_AUTH_TOKEN,
-    payload: {
-        content
-    }
 
+// Open a socket at namespace, with params and accessToken
+export const openSocket = (namespace, params, accessToken) => ({
+    type: actions.CREATE_SOCKET,
+    accessToken: accessToken
 })
 
 export const sendOnSocket = content => ({
@@ -15,12 +14,6 @@ export const sendOnSocket = content => ({
 	}
 })
 
-export const openSocket = content => ({
-	type: actions.CREATE_SOCKET,
-	payload: {
-		content
-	}
-})
 
 export const addMessage = (msg) => ({
     type: 'ADD_MESSAGE',

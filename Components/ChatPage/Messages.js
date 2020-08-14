@@ -12,23 +12,22 @@ const updateMessagesHeight = event => {
 
 
 const mapStateToProps = (state) => ({
-    messages: state,
+    messages: state.messages,
     isFetching: false
 });
 
 const Messages = connect(
     mapStateToProps
-)(({ messages, isFetching, dispatch }) => {
-    console.log('Current List', messages.messages);
+)(({ messages, isFetching}) => {
+    console.log('Current List', messages);
     if (isFetching) {
         return (
             <View style={{paddingTop: 50,
                           paddingBottom: 50}}>
-                
             </View>
         )
     }else{
-        return <MessageList messages={messages.messages}
+        return <MessageList messages={messages}
                             style={{minHeight: 100}}
                             />
     }

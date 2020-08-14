@@ -1,6 +1,6 @@
 import * as actions from "../constants/ActionTypes";
 
-
+// Move to a service file
 function makeid(length) {
    var result           = '';
    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -18,6 +18,7 @@ function makeid(length) {
 // Start fetching messages
 export const startFetchingMessages = () => ({
 	type: actions.SOCKET_SEND,
+	fetching: true,
 	eventName: 'get',
 	namespace: 'messages',
 	params: null,
@@ -25,9 +26,18 @@ export const startFetchingMessages = () => ({
 
 });
 
+export const messagesReceived = (fetching) => ({
+	type: actions.MESSAGE_FETCH_COMPLETED,
+	fetching: false
+})
 
 
+export const receiveMessages = (messages) => {
+    return function (dispatch) {
+        console.log('messages', Object.values(messages));
 
+    }
+}
 
 
 export const sendMessage = (text, user) => ({
@@ -40,12 +50,6 @@ export const sendMessage = (text, user) => ({
 	id: makeid(16),
 	user: user
 
-})
-
-
-export const messagesReceived = (fetching) => ({
-	type: actions.MESSGE_FETCH_COMPLETED,
-	fetching
 })
 
 export const addMessage = (msg) => ({

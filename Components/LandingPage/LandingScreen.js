@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 
-import FireSideLogo from '../../assets/svg/FireSideLogo'
+import FireSideLogo from '../../assets/svg/FiresideLogo'
 
 export default class LandingScreen extends Component {
 	
