@@ -6,31 +6,25 @@ import ChatScreenHeader from './ChatScreenHeader'
 import Messages from './Messages'
 import ChatScreenFooter from './ChatScreenFooter'
 
-import { sendMessage } from "../../redux/actions/./MessageActions"
+import { sendMessage, startFetchingMessages } from "../../redux/actions/./MessageActions"
 import { openSocket } from "../../redux/actions/./SocketActions"
 
 class ChatScreen extends Component{
 	constructor(props){
-		super(props);
-
-		this.sendMessage = this.sendMessage.bind(this);
-
-		
+		super(props);		
 	}
 
 	componentDidMount(){
 
-		//this.props.sendMessage;
+		this.props.openSocket()
+		
+		
+
 		//this.sendMessage();
 	}
 
-	sendMessage = () => {
-		console.log("Button pressed 1");
-		const user = ({name: this.state.name});
-		this.props.sendMessage(this.state.messageInput, user);
-		console.log(this.state.messageInput);
-		this.setState({messageInput: ""});
-	}
+
+
 
 	render(){
 		return(

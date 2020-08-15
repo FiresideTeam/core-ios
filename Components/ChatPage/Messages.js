@@ -18,7 +18,7 @@ const mapStateToProps = (state) => ({
 
 const Messages = connect(
     mapStateToProps
-)(({ messages, isFetching}) => {
+)(({ messages=[], isFetching}) => {
     console.log('Current List', messages);
     if (isFetching) {
         return (
