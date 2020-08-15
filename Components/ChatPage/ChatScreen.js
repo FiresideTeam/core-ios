@@ -9,15 +9,27 @@ import ChatScreenFooter from './ChatScreenFooter'
 import { sendMessage } from "../../redux/actions/./MessageActions"
 import { openSocket } from "../../redux/actions/./SocketActions"
 
-export class ChatScreen extends Component{
+class ChatScreen extends Component{
 	constructor(props){
 		super(props);
+
+		this.sendMessage = this.sendMessage.bind(this);
 
 		
 	}
 
 	componentDidMount(){
-	
+
+		this.props.sendMessage;
+		this.sendMessage();
+	}
+
+	sendMessage = () => {
+		console.log("Button pressed 1");
+		const user = ({name: this.state.name});
+		this.props.sendMessage(this.state.messageInput, user);
+		console.log(this.state.messageInput);
+		this.setState({messageInput: ""});
 	}
 
 	render(){

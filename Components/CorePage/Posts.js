@@ -22,6 +22,8 @@ export default class Posts extends Component {
 		// at a 1/3 ratio to screen width
 		// and I don't know a better way to do it
 
+		// WIll from the future: just have them be a %margin instead idiot
+
 		return (
 		<View style={{flex: 1}}>
 
