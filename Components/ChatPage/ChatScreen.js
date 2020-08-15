@@ -20,8 +20,8 @@ class ChatScreen extends Component{
 
 	componentDidMount(){
 
-		this.props.sendMessage;
-		this.sendMessage();
+		//this.props.sendMessage;
+		//this.sendMessage();
 	}
 
 	sendMessage = () => {
