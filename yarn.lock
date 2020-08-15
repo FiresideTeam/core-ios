@@ -4531,7 +4531,7 @@ native-base@^2.13.13:
   resolved "https://registry.yarnpkg.com/native-base/-/native-base-2.13.13.tgz#431735005151f456c0faee6f00abe00b1e049dc9"
   integrity sha512-/JOCe/iqnIzto2QJBw/p/PRtJNB8G+NdLOWUYB43TZFWEk6aun1CRBQ0eJ5ibI0bL2aL2ytU2k9Wdp0HxM9Ong==
   dependencies:
-    "@codler/react-native-keyboard-aware-scroll-view" "1.0.0"
+    react-native-keyboard-aware-scroll-view "0.9.2"
     blueimp-md5 "^2.5.0"
     clamp "^1.0.1"
     color "~3.1.2"
