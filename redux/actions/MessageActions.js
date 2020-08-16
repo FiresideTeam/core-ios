@@ -20,9 +20,9 @@ function makeid(length) {
 export const startFetchingMessages = () => ({
 	type: actions.SOCKET_SEND,
 	isFetching: true,
-	eventName: 'request',
+	eventName: 'get',
 	namespace: 'messages',
-	params: null,
+	params: 1,
 	payload: null,
 
 });

@@ -51,8 +51,6 @@ class ChatFooter extends Component{
 	    );
 	*/
 
-	
-
 	this.setState({name: 'User-'+makeid(4)});
 }
 
