@@ -1,7 +1,7 @@
-import React, {Component} from "react";
-import {Alert, StyleSheet, View} from "react-native";
-import {Header} from "react-native-elements";
-import {Button, Container, Content, Icon} from "native-base";
+import React, { Component } from "react";
+import { Alert, StyleSheet, View } from "react-native";
+import { Header } from "react-native-elements";
+import { Button, Container, Content, Icon } from "native-base";
 import CardComponent from "../CardComponent";
 
 class Feed extends Component {
@@ -32,13 +32,13 @@ class Feed extends Component {
                   ])
                 }
               >
-                <Icon name="ios-add" style={{ color: "orange" }}/>
+                <Icon name="ios-add" style={{ color: "orange" }} />
               </Button>
             }
           />
         </View>
         <Content>
-          <CardComponent/>
+          <CardComponent />
         </Content>
       </Container>
     );

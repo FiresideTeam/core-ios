@@ -1,38 +1,28 @@
-import React, { Component } from 'react';
-import {
-    FlatList, Text, Image,
-    View, Heading
-} from 'react-native';
-
+import React, { Component } from "react";
+import { FlatList, Text, Image, View, Heading } from "react-native";
 
 const RenderMessage = ({ item }) => (
-    <View>
-        <Image styleName="small-avatar top"
-               source={{ uri: item.author.avatar }} />
-        <View styleName="vertical">
-            <View styleName="horizontal space-between">
-                <Text>{item.author.name}</Text>
-            </View>
-            
-            <Text styleName="multiline">{item.text}</Text>
-        </View>
+  <View>
+    <Image styleName="small-avatar top" source={{ uri: item.author.avatar }} />
+    <View styleName="vertical">
+      <View styleName="horizontal space-between">
+        <Text>{item.author.name}</Text>
+      </View>
+
+      <Text styleName="multiline">{item.text}</Text>
     </View>
+  </View>
 );
 
 const MessageList = ({ messages, onLayout }) => (
-    <FlatList
-        data={messages}
-        renderItem={({item, index, seperators}) => (
-            <View>
-              <Text>
-                {item.user.name + ': ' + item.text}
-                </Text>
-              </View>
-
-          )}
-
-
-      />
+  <FlatList
+    data={messages}
+    renderItem={({ item, index, seperators }) => (
+      <View>
+        <Text>{item.user.name + ": " + item.text}</Text>
+      </View>
+    )}
+  />
 );
 
 export default MessageList;

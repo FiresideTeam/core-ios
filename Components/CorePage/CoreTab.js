@@ -14,9 +14,7 @@ import { useNavigation } from "@react-navigation/native";
 
 function Core() {
   const navigation = useNavigation();
-  return (
-    <Text>Placeholder </Text>
-  );
+  return <Text>Placeholder </Text>;
 }
 
 export default Core;

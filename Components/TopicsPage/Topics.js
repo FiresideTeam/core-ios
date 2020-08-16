@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-  RefreshControl,
-} from "react-native";
+import { View, Text, StyleSheet, FlatList, RefreshControl } from "react-native";
 import TopicCell from "./TopicCell";
 
 /*
@@ -42,8 +36,6 @@ export default class Topic extends Component {
     );
   }
 }
-
-
 
 const styles = StyleSheet.create({
   list: {

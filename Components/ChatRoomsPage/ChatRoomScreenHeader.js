@@ -1,36 +1,42 @@
-import React, { Component } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import React, { Component } from "react";
+import { View, Text, TouchableOpacity } from "react-native";
 
-import LeftActionIcon from "../../assets/svg/./LeftActionIcon.js"
-import { useNavigation } from '@react-navigation/native';
+import LeftActionIcon from "../../assets/svg/./LeftActionIcon.js";
+import { useNavigation } from "@react-navigation/native";
 
-class ChatRoomsScreenHeader extends Component{
-	
+class ChatRoomsScreenHeader extends Component {
+  render() {
+    const { navigation } = this.props;
+    return (
+      <View style={{ flex: 1, flexDirection: "row" }}>
+        <View style={{ flex: 1, justifyContent: "center", width: 100 }}>
+          <TouchableOpacity onPress={() => navigation.pop()}>
+            <LeftActionIcon
+              style={{ marginTop: "10%", alignSelf: "flex-start" }}
+            />
+          </TouchableOpacity>
+        </View>
 
-	render(){
-		const { navigation } = this.props;
-		return(
-			<View style={{flex: 1, flexDirection: 'row'}}>
-				<View style={{flex:1, justifyContent: 'center', width:100}}>
-					<TouchableOpacity onPress={() => navigation.pop()}>
-						<LeftActionIcon style={{marginTop: '10%', alignSelf: 'flex-start'}}/>
-					</TouchableOpacity>
-				</View>
-			
-				
-				<View style={{flex:1, justifyContent: 'center'}}>
-					<Text style={{fontSize: 18, fontWeight: 'bold', alignSelf: 'center', marginTop: '10%'}}>Chats</Text>
-				</View>
+        <View style={{ flex: 1, justifyContent: "center" }}>
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: "bold",
+              alignSelf: "center",
+              marginTop: "10%",
+            }}
+          >
+            Chats
+          </Text>
+        </View>
 
-				<View style={{flex:1}}>
-		
-				</View>
-			</View>
-		);
-	}
+        <View style={{ flex: 1 }}></View>
+      </View>
+    );
+  }
 }
 
-export default function(props) {
+export default function (props) {
   const navigation = useNavigation();
   return <ChatRoomsScreenHeader {...props} navigation={navigation} />;
 }

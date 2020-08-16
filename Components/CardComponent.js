@@ -1,6 +1,15 @@
-import React, {Component} from "react";
-import {Alert, Image, StyleSheet, Text} from "react-native";
-import {Body, Button, Card, CardItem, Icon, Left, Right, Thumbnail,} from "native-base";
+import React, { Component } from "react";
+import { Alert, Image, StyleSheet, Text } from "react-native";
+import {
+  Body,
+  Button,
+  Card,
+  CardItem,
+  Icon,
+  Left,
+  Right,
+  Thumbnail,
+} from "native-base";
 
 class CardComponent extends Component {
   render() {
@@ -31,7 +40,7 @@ class CardComponent extends Component {
                 ])
               }
             >
-              <Icon name="ios-chatbubbles" style={{ color: "black" }}/>
+              <Icon name="ios-chatbubbles" style={{ color: "black" }} />
             </Button>
           </Right>
         </CardItem>

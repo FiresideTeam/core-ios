@@ -1,65 +1,83 @@
-import React, { Component } from 'react'
-import { View , FlatList, TouchableOpacity, Image, Text} from 'react-native'
-import { connect } from 'react-redux'
+import React, { Component } from "react";
+import { View, FlatList, TouchableOpacity, Image, Text } from "react-native";
+import { connect } from "react-redux";
 
-import { fetchChatRooms } from '../../redux/actions/ChatRoomActions'
-import { ChatRoom } from './ChatRoom'
+import { fetchChatRooms } from "../../redux/actions/ChatRoomActions";
+import { ChatRoom } from "./ChatRoom";
 
 let data = [
-	{name: "Everett Dickinson"},
-	{name: "John Melton"},
-	{name: "Michael Hla"},
-	{name: "Will Allen"},
-	{name: "Henry Baldwin"},
-]
-
-
+  { name: "Everett Dickinson" },
+  { name: "John Melton" },
+  { name: "Michael Hla" },
+  { name: "Will Allen" },
+  { name: "Henry Baldwin" },
+];
 
 class ChatRoomList extends Component {
+  constructor(props) {
+    super(props);
+  }
 
+  componentDidMount() {}
 
-	constructor(props){
-		super(props);
-	}
+  render() {
+    const navigation = this.props.navigation;
+    return (
+      <FlatList
+        data={data}
+        renderItem={({ item, index }) => (
+          <TouchableOpacity
+            onPress={() => console.log(navigation.push("Chat"))}
+          >
+            <View
+              style={{
+                padding: "5%",
+                borderColor: "#D5D5D5",
+                borderBottomWidth: 1,
+                borderTopWidth: 1,
+              }}
+            >
+              <View
+                style={{
+                  flex: 1,
+                  flexDirection: "row",
+                  alignItems: "flex-start",
+                  justifyContent: "center",
+                }}
+              >
+                <View
+                  style={{
+                    flex: 1,
+                    alignItems: "flex-start",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Image
+                    source={require("../../assets/dickpfp.png")}
+                    style={{ height: 64, width: 64 }}
+                  />
+                </View>
 
-	componentDidMount(){
-
-	}
-
-	render(){
-		const navigation = this.props.navigation;
-		return(
-		<FlatList 
-		data={data}
-		renderItem={({item, index}) => (
-		<TouchableOpacity onPress={() => console.log(navigation.push('Chat'))}>	
-			<View style={{padding: '5%', borderColor:'#D5D5D5', borderBottomWidth: 1, borderTopWidth: 1}}>
-				<View style={{flex:1, flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'center'}}>
-					
-					<View style={{flex: 1, alignItems: 'flex-start', justifyContent: 'center'}}>
-						<Image source={require('../../assets/dickpfp.png')} style={{height:64, width:64}}/>
-					</View>
-
-					<View style={{flex: 4, paddingLeft: '5%', alignItems: 'flex-start', justifyContent: 'center'}}>
-
-							<Text style={{fontWeight: 'bold', fontSize: 13}}>
-								{item.name}
-							</Text>
-							<Text style={{fontSize: 13, marginTop: '2%'}}>
-								Meme
-							</Text>
-						
-					</View>
-				</View>
-			</View>
-		</TouchableOpacity>
-		)}
-		
-		/>
-		);
-	}
-
-
+                <View
+                  style={{
+                    flex: 4,
+                    paddingLeft: "5%",
+                    alignItems: "flex-start",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Text style={{ fontWeight: "bold", fontSize: 13 }}>
+                    {item.name}
+                  </Text>
+                  <Text style={{ fontSize: 13, marginTop: "2%" }}>Meme</Text>
+                </View>
+              </View>
+            </View>
+          </TouchableOpacity>
+        )}
+      />
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
