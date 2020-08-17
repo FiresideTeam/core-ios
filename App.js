@@ -33,6 +33,8 @@ import SessionContext from "./Contexts/SessionContext";
 
 import { useNavigation } from "@react-navigation/native";
 
+import { YellowBox } from "react-native";
+
 import * as Font from "expo-font";
 // Sagae-redux handling
 const sagaMiddleware = createSagaMiddleware();
@@ -121,6 +123,12 @@ Otherwise navigate to Main
 export default class App extends Component {
   constructor(props) {
     super(props);
+
+    // React-native package refuses to update their componenets so I'm not dealing w this error
+    YellowBox.ignoreWarnings([
+      "componentWillMount",
+      "Warning: componentWillReceiveProps has been renamed",
+    ]);
 
     this.updateSession = () => {
       this.setState({

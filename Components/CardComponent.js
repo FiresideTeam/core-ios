@@ -24,7 +24,7 @@ class CardComponent extends Component {
             <Thumbnail source={{ uri: "https://picsum.photos/196/300" }} />
             <Body>
               <Text>Noah Shelton</Text>
-              <Text note>June 15, 2020</Text>
+              <Text>June 15, 2020</Text>
             </Body>
           </Left>
           <Right>
