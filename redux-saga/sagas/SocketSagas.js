@@ -12,7 +12,6 @@ import * as actions from "../../redux/constants/ActionTypes";
 
 const io = require("socket.io-client");
 
-
 function createSocketConnection(url, namespace) {
   return io(url + "/" + namespace);
 }
@@ -20,18 +19,17 @@ function createSocketConnection(url, namespace) {
 // Opens a new io socket
 // Creates a SOCKET_CREATED action
 function* openSocket() {
-   const socket = io('http://3.129.52.188:3030')
-   
-   // Add error handlers here
-   yield put({type: actions.SOCKET_CREATED, socket: socket})
+  const socket = io("http://3.129.52.188:3030");
+
+  // Add error handlers here
+  yield put({ type: actions.SOCKET_CREATED, socket: socket });
 }
 
 // Redux-saga eventchannel subscribes to io.on events
 // Will need to change later with rooms & content fetch
 function createSocketChannel(socket, channels, auth) {
   return eventChannel((emit) => {
-   
-   const eventHandler = (event) => {
+    const eventHandler = (event) => {
       emit(event);
     };
 
@@ -71,14 +69,9 @@ function createSocketChannel(socket, channels, auth) {
           }
         );
       }
-    }
+    };
 
-    const roomConnectHandler = () => {
-
-    }
-
-
-    
+    const roomConnectHandler = () => {};
 
     // On connect, attempt to authenticate
     socket.on("connect", (socket) => connectHandler);
@@ -86,8 +79,6 @@ function createSocketChannel(socket, channels, auth) {
     // Replace this with a for loop
     // loop thru all the rooms and subscribe to their events?
     socket.on("messages created", eventHandler);
-
-
 
     socket.on("error", errorHandler);
 
@@ -103,7 +94,7 @@ function createSocketChannel(socket, channels, auth) {
   });
 }
 
-// Authenticate 
+// Authenticate
 // Not finished
 function* authenticate() {
   // Search for Access Token
@@ -129,26 +120,24 @@ function* authenticate() {
 
 // Handles and routes events emitted from createSocketChannel
 function* readSocket(socket) {
-  console.log('read socket', socket)
+  console.log("read socket", socket);
   const socketChannel = yield call(createSocketChannel, socket);
-  console.log('read socket')
+  console.log("read socket");
   while (true) {
     try {
-
       const payload = yield take(socketChannel);
 
-      switch(payload.type){
+      switch (payload.type) {
         case payload.type == actions.RECEIVED_MESSAGES:
-            yield put({
-              type: actions.RECEIVED_MESSAGES,
-              id: payload.messageId,
-              text: payload.text,
-              user: { name: payload.name },
-            });
+          yield put({
+            type: actions.RECEIVED_MESSAGES,
+            id: payload.messageId,
+            text: payload.text,
+            user: { name: payload.name },
+          });
         case payload.type == actions.SOCKET_CREATED:
-          yield put({type: actions.SOCKET_CREATED})
+          yield put({ type: actions.SOCKET_CREATED });
       }
-
     } catch (err) {
       console.log("socket error: ", err);
     }
@@ -181,8 +170,5 @@ function* writeSocket(socket) {
     //console.log("sent",'create', {text: payload});
   }
 }
-
-
-
 
 export { openSocket, readSocket, writeSocket };
