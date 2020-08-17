@@ -20,6 +20,7 @@ export function* watchSocket() {
   // Wait for SOCKET_CREATED action to spawn read & write sagas
   const { socket } = yield take(actions.SOCKET_CREATED);
 
+
   // Spawn two sagas for read & write
   // Maybe change this to fork, I need to read more
   yield spawn(readSocket, socket);
