@@ -8,7 +8,7 @@ import {
   spawn,
 } from "redux-saga/effects";
 
-import { openSocket, readSocket, writeSocket } from "../sagas/SocketSagas";
+import { openSocket, readSocket, writeSocket, authenticate } from "../sagas/SocketSagas";
 
 import * as actions from "../../redux/constants/ActionTypes";
 
@@ -20,7 +20,10 @@ export function* watchSocket() {
   // Wait for SOCKET_CREATED action to spawn read & write sagas
   const { socket } = yield take(actions.SOCKET_CREATED);
 
-  // 
+  // Get auth
+  //yield fork()
+
+
   // Spawn two sagas for read & write
   // Maybe change this to fork, I need to read more
   yield spawn(readSocket, socket);
