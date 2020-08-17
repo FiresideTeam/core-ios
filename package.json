@@ -16,7 +16,8 @@
     "@react-navigation/native": "^5.7.3",
     "@react-navigation/stack": "^5.9.0",
     "expo": "^38.0.9",
-    "native-base": "^2.13.13",
+    "native-base": "~2.11",
+    "react-native-web": "~0.11",
     "react": "^16.13.1",
     "react-dom": "~16.9.0",
     "react-native": "^0.63.2",
@@ -30,7 +31,6 @@
     "react-native-super-grid": "^4.0.2",
     "react-native-svg": "^12.1.0",
     "react-native-vector-icons": "^7.0.0",
-    "react-native-web": "~0.11.7",
     "react-navigation": "^4.4.0",
     "react-redux": "^7.2.1",
     "react-spring": "^8.0.27",
@@ -41,6 +41,9 @@
   "devDependencies": {
     "@babel/core": "^7.11.1",
     "babel-preset-expo": "~8.2.3"
+  },
+  "resolutions": {
+    "react-native-keyboard-aware-scroll-view": "^0.9.0"
   },
   "private": true
 }
