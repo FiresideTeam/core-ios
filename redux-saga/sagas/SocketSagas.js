@@ -1,7 +1,6 @@
 import { AsyncStorage } from "react-native";
 import { put, fork, take, call, apply } from "redux-saga/effects";
 import { eventChannel } from "redux-saga";
-import socketio from "@feathersjs/socketio-client";
 
 import {
   saveLocalData,
@@ -17,20 +16,29 @@ function createSocketConnection(url, namespace) {
   return io(url + "/" + namespace);
 }
 
-function createSocketChannel(socket) {
+// Opens a new io socket
+// Creates a SOCKET_CREATED action
+function* openSocket() {
+  const socket = io("http://3.129.52.188:3030");
+
+  // Add error handlers here
+  yield put({ type: actions.SOCKET_CREATED, socket: socket });
+}
+
+// Redux-saga eventchannel subscribes to io.on events
+// Will need to change later with rooms & content fetch
+function createSocketChannel(socket, channels, auth) {
   return eventChannel((emit) => {
-    const eventHandler = (event) => {
-      //console.log(event);
-      emit(event);
-      //receiveMessages(event.payload)
+    const messagesCreatedEvent = (event) => {
+      console.log('event', event)
+      emit({type: actions.RECEIVED_MESSAGES, ...event});
     };
 
     const errorHandler = (errorEvent) => {
       emit(new Error(errorEvent.reason));
     };
 
-    // On connect, attempt to authenticate
-    socket.on("connect", () => {
+    const authHandler = () => {
       console.log("Fireside [Socket] : connected to the server");
       // Pass auth in as a param later, to async storage stuff outside of this callback
       if (false) {
@@ -54,7 +62,7 @@ function createSocketChannel(socket) {
                 authResult.accessToken
               );
               saveLocalData("accessToken", authResult.accessToken);
-              emit({ type: actions.SOCKET_CREATED });
+              //emit({ type: actions.SOCKET_CREATED });
             }
 
             // authResult will be {"accessToken": "your token", "user": user }
@@ -62,10 +70,17 @@ function createSocketChannel(socket) {
           }
         );
       }
-    });
+    };
 
-    // socket.on('messages created', eventHandler);
-    socket.on("messages created", eventHandler);
+    const roomConnectHandler = () => {};
+
+    // On connect, attempt to authenticate
+    socket.on("connect", authHandler);
+
+    // Replace this with a for loop
+    // loop thru all the rooms and subscribe to their events?
+    socket.on("messages created", messagesCreatedEvent);
+
     socket.on("error", errorHandler);
 
     socket.on("connect_failed", function () {
@@ -80,6 +95,57 @@ function createSocketChannel(socket) {
   });
 }
 
+// Authenticate
+// Not finished
+function* authenticate() {
+  // Search for Access Token
+  console.log("Fireside [Socket] : Looking for local Access Token");
+  yield put({ type: actions.GET_LOCAL_DATA, key: "accessToken" });
+
+  // Add a timeout/ an or for get_local_data_unsuccessful
+  const { data } = yield take(actions.GET_LOCAL_DATA_SUCCESSFUL);
+
+  console.log("accessToken", data);
+  let accessToken = null;
+
+  console.log("at", accessToken);
+  if (accessToken) {
+    console.log("Fireside [Socket] : Attempting to save accessToken locally");
+    yield put({
+      type: actions.SAVE_LOCAL_DATA,
+      key: "accessToken",
+      data: authResult.accessToken,
+    });
+  }
+}
+
+// Handles and routes events emitted from createSocketChannel
+function* readSocket(socket) {
+  const socketChannel = yield call(createSocketChannel, socket);
+  while (true) {
+    try {
+      const payload = yield take(socketChannel);
+      switch (payload.type) {
+        case actions.RECEIVED_MESSAGES:
+          console.log('dada')
+          yield put({
+            type: actions.RECEIVED_MESSAGES,
+            id: payload.messageId,
+            text: payload.text,
+            user: { name: payload.name },
+          });
+        case actions.SOCKET_CREATED:
+          yield put({ type: actions.SOCKET_CREATED });
+
+      }
+    } catch (err) {
+      console.log("socket error: ", err);
+    }
+  }
+}
+
+// Writes to the socket
+// const {eventName, namespace, params, query, id, payload, user}
 function* writeSocket(socket) {
   console.log("write socket enabled");
   while (true) {
@@ -105,75 +171,4 @@ function* writeSocket(socket) {
   }
 }
 
-function* watchSocketChannel() {
-  // Move this to open socket (w/ param auth)
-  const socket = yield call(
-    createSocketConnection,
-    "http://3.129.52.188:3030",
-    ""
-  );
-
-  // Search for Access Token
-  console.log("Fireside [Socket] : Looking for local Access Token");
-  yield put({ type: actions.GET_LOCAL_DATA, key: "accessToken" });
-
-  // Add a timeout/ an or for get_local_data_unsuccessful
-  const { data } = yield take(actions.GET_LOCAL_DATA_SUCCESSFUL);
-
-  console.log("accessToken", data);
-  let accessToken = null;
-
-  console.log("at", accessToken);
-  if (accessToken) {
-    console.log("Fireside [Socket] : Attempting to save accessToken locally");
-    yield put({
-      type: actions.SAVE_LOCAL_DATA,
-      key: "accessToken",
-      data: authResult.accessToken,
-    });
-  }
-
-  console.log("socket", socket);
-  yield fork(writeSocket, socket); // I've added this line
-  const socketChannel = yield call(createSocketChannel, socket);
-
-  while (true) {
-    try {
-      const payload = yield take(socketChannel);
-
-      // switch(payload.type){
-      //   case 'SOCKET_CONNECTED':
-      //   yield put({type: payload.type})
-      // }
-
-      if (payload.type == actions.SOCKET_CREATED) {
-        yield put({ type: actions.SOCKET_CREATED });
-        yield put({
-          type: actions.SOCKET_SEND,
-          isFetching: true,
-          eventName: "find",
-          namespace: "messages",
-          params: 1,
-          query: { fetch: "all" },
-          payload: null,
-        });
-      } else {
-        console.log("Message Received", payload);
-
-        //Delete
-        const cleanPayload = { id: payload.messageId, text: payload.text };
-
-        yield put({
-          type: actions.RECEIVED_MESSAGES,
-          id: payload.messageId,
-          text: payload.text,
-          user: { name: payload.name },
-        });
-      }
-    } catch (err) {
-      console.log("socket error: ", err);
-    }
-  }
-}
-
-export { watchSocketChannel };
+export { openSocket, readSocket, writeSocket };
