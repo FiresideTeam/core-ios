@@ -1,46 +1,31 @@
 import React, { Component } from "react";
-import { Alert, StyleSheet, View } from "react-native";
+import { Alert, StyleSheet, View, Text } from "react-native";
 import { Header } from "react-native-elements";
-import { Button, Container, Content, Icon } from "native-base";
 import CardComponent from "../CardComponent";
+
+import FeedHeader from "./FeedHeader"
 
 class Feed extends Component {
   render() {
     return (
-      <Container>
-        <View>
-          <Header
-            linearGradientProps={{
-              colors: ["dodgerblue", "white"],
-              start: { x: 0, y: 0 },
-              end: { x: 1, y: 1 },
-            }}
-            centerComponent={{ text: "CORE", style: { color: "#fff" } }}
-            rightComponent={
-              <Button
-                style={{ backgroundColor: null }}
-                onPress={() =>
-                  Alert.alert("Add Post", "Add Post", [
-                    {
-                      text: "Cancel",
-                      onPress: () => console.log("Cancelled post"),
-                    },
-                    {
-                      text: "Post",
-                      onPress: () => console.log("post made"),
-                    },
-                  ])
-                }
-              >
-                <Icon name="ios-add" style={{ color: "orange" }} />
-              </Button>
-            }
-          />
+ <View style={{ flex: 1 }}>
+        <View style={{ flex: 2, backgroundColor: "#FFFFFF" }}>
+          <FeedHeader />
         </View>
-        <Content>
-          <CardComponent />
-        </Content>
-      </Container>
+
+        <View
+          style={{
+            flex: 14,
+            backgroundColor: "#FFFFFF",
+            borderColor: "#D5D5D5",
+            borderWidth: 1.5,
+          }}
+        >
+          <Text>
+          Herro
+          </Text>
+        </View>
+      </View>
     );
   }
 }
