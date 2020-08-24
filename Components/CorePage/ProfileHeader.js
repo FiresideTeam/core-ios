@@ -119,6 +119,12 @@ export class ProfileScreenHeader extends Component {
               { key: "5" },
               { key: "6" },
               { key: "7" },
+              { key: "8" },
+              { key: "9" },
+              { key: "10" },
+              { key: "11" },
+              { key: "12" },
+              { key: "13" },
             ]}
             showsHorizontalScrollIndicator={false}
             renderItem={() => (

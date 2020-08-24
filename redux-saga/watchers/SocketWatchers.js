@@ -23,7 +23,6 @@ export function* watchSocket() {
   // Get auth
   //yield fork()
 
-
   // Spawn two sagas for read & write
   // Maybe change this to fork, I need to read more
   yield spawn(readSocket, socket);
