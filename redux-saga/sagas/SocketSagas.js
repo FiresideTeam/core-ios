@@ -19,7 +19,7 @@ function createSocketConnection(url, namespace) {
 // Opens a new io socket
 // Creates a SOCKET_CREATED action
 function* openSocket() {
-  const socket = io("http://3.129.52.188:3030");
+  const socket = io("https://3.129.52.188:3030", {secure: true});
 
   // Add error handlers here
   yield put({ type: actions.SOCKET_CREATED, socket: socket });

@@ -8,7 +8,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Ionicons } from "@expo/vector-icons";
 
 // Navigators
-import Feed from "./Components/FeedPage/FeedTab";
+import Feed from "./Components/FeedPage/Index";
 import Core from "./Components/CorePage/Main";
 // Components
 import TopicSingleView from "./Components/TopicSingleView";
